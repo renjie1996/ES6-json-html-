@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Array Cardio</title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!--斑马条纹striped-->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>出生日期</th>
+          <th>逝世日期</th>
+        </tr>
+      </thead>
+      <tbody>
+       
+      </tbody>
+    </table>
+    </div>
+
+    <div class="row">
+			<div class="input-group col-md-6 col-md-offset-3">
+				<input type="text" class="form-control " placeholder="输入发明家名字搜索..."id="search-keyword"/>
+				<span class="input-group-btn">
+					<button class="btn btn-default" id="search-btn">搜索<tton>
+				</span>
+			</div>
+	</div>
+    <p>
+        <em>
+            Post:have a look at the JavaScript Console.
+        </em>
+    </p>
+
+    <script>
+        // 常量声明
+        //构建一个对象数组，JSON数组
+        //数据源
+        const inventors = [
+            {
+                first:'Alert',
+                last:'Einstein',
+                year:1879,
+                passed:1955
+            },
+            {
+                first:'Isaac',
+                last:'Newton',
+                year:1643,
+                passed:1727
+            },
+            {
+                first:'Gelileo',
+                last:'Xu',
+                year:1564,
+                passed:1642
+            },
+            {
+                first:'Xu',
+                last:'Renjie',
+                year:1996,
+                passed:2196
+            },
+            {
+                first:'Zhao',
+                last:'Jingru',
+                year:1996,
+                passed:2195
+            },
+            {
+                first:'Bryant',
+                last:'Kobe',
+                year:1978,
+                passed:2060
+            },
+            {
+                first:'DW',
+                last:'Wade',
+                year:1984,
+                passed:2080
+            },
+            {
+                first:'LB',
+                last:'James',
+                year:1986,
+                passed:2080
+            }  
+        ];
+
+        // 普通遍历
+
+        // for(var i=0;i<inventors.length;i++){
+        //     console.log(inventors[i].first);
+        //     const inventor = inventors[i];
+        //     const name = inventor.first + '' + inventor.last;
+        //     console.log(name);
+        // }
+
+        //拿出每一个
+            //of说：有什么，都拿出来走一遍
+        // for(const inventor of inventors){
+        //     // console.log(inventor);
+        //     //````````````````波浪符号
+        //     const name = `${inventor.first} ${inventor.last}`
+        //     console.log(name); 
+
+        // }
+
+        // //拼接html的字符串模版
+
+        // const invertorsHtml = `
+        //     <tr>
+        //         <td>${inventors[0].first} ${inventors[0].last}</td>
+        //         <td>${inventors[0].year}</td>
+        //         <td>${inventors[0].passed}</td>
+        //     </tr>
+        // `;
+        // console.log(invertorsHtml);
+        
+        // //把模版放入表格
+        // document.querySelector('.table>tbody').innerHTML=invertorsHtml;
+
+        //只插最后一个<tr></tr>的bug.
+        // var invertorHtml = ``;
+        // for(const inventor of inventors){
+ 
+        //     var invertorHtml = invertorHtml+`
+        //     <tr>
+        //         <td>${inventor.first} ${inventor.last}</td>
+        //         <td>${inventor.year}</td>
+        //         <td>${inventor.passed}</td>
+        //     </tr>
+        //      `;
+        //     console.log(invertorHtml);
+            
+ 
+        // }
+        // document.querySelector('.table>tbody').innerHTML=invertorHtml;
+        
+        //teacher字符串模版写法：
+        // const htmlArr = [];
+        // const inventorFifth = [];
+        // for( const inventor of inventors) {
+        // // console.log(inventor);
+
+        //     if(inventor.year>1500 && inventor.passed<2000){
+        //         const inventorFifthHtml = `
+        //             <tr>
+        //                 <td>${inventor.first} ${inventor.last}</td>
+        //                 <td>${inventor.year}</td>
+        //                 <td>${inventor.passed}</td>
+        //             </tr>
+        //         `;
+                
+        //         inventorFifth.push(inventorFifthHtml);
+        //     };
+
+
+            // const invertorsHtml = `
+            // <tr>
+            // <td>${inventor.first} ${inventor.last}</td>
+            // <td>${inventor.year}</td>
+            // <td>${inventor.passed}</td>
+            // </tr>
+            //  `;
+            // htmlArr.push(invertorsHtml);
+        // }
+        // document.querySelector('.table>tbody').innerHTML = inventorFifth.join("");
+        // document.querySelector('.table>tbody').innerHTML = htmlArr.join("");
+
+        //append方法实现：
+        
+
+        //‘’表示tr之间没有别的东西
+        //遍历数组，并返回新数组
+        //回调函数
+
+        //用const内存优化
+    //    链式调用，函数化编程
+    //    解构的思想，使可读性会更好
+        //     document.querySelector('.table>tbody').innerHTML  = inventors.map((inventor) => {
+        //     const html =`
+        //        <tr>
+        //        <td>${inventor.first} ${inventor.last}</td>
+        //        <td>${inventor.year}</td>
+        //        <td>${inventor.passed}</td>
+        //        </tr>
+        //     `;
+
+        //     return html;
+            
+        // }).join('');
+
+        
+            // document.querySelector('.table>tbody').innerHTML =  inventors.filter(inventor => {
+            // 如果你要这个发明家留下 true or false；
+            // return inventor.year>1500 && inventor.passed<1700;
+            // if(inventor.year>1500 && inventor.passed<1700) {
+            //     return inventor.map(inventor.);
+            // }else {
+            //     return false;
+            // }   
+        //     }).map((inventor)=>{
+        //     const html =`
+        //        <tr>
+        //        <td>${inventor.first} ${inventor.last}</td>
+        //        <td>${inventor.year}</td>
+        //        <td>${inventor.passed}</td>
+        //        </tr>
+        //      `;
+
+        //        return html;
+            
+        //    }).join('');
+
+        //    const searchBtn = document.getElementById('search-btn');
+        //    const searchInput = document.getElementById('search-keyword');
+
+        //     searchBtn.addEventListener('click',()=>{
+        //        //过滤
+        //          document.querySelector('.table>tbody').innerHTML =inventors.filter(inventor=>{
+                
+        //            return  inventor.first+inventor.last === searchInput.value; 
+        //         // return  inventorName.indexOf(keyword) > -1; 
+        //        }).map((inventor)=>{
+        //        const html =`
+        //        <tr>
+        //        <td>${inventor.first} ${inventor.last}</td>
+        //        <td>${inventor.year}</td>
+        //        <td>${inventor.passed}</td>
+        //        </tr>
+        //      `;
+
+        //        return html;
+            
+        //    }).join('')
+        // })
+       
+        const searchBtn = document.getElementById('search-btn');
+        const searchInput = document.getElementById('search-keyword');
+        // 监听 btn的点击事件
+        searchBtn.addEventListener('click', () => {
+        // 获取输入框的值
+        //Alert
+        
+        document.querySelector('.table>tbody').innerHTML = inventors.filter(inventor => {
+            const inventorName = inventor.first + inventor.last;
+            return inventorName.indexOf(searchInput.value) > -1;
+        }).map(inventor => {
+            return `
+            <tr>
+            <td>${inventor.first} ${inventor.last}</td>
+                <td>${inventor.year}</td>
+                <td>${inventor.passed}</td>
+            </tr>
+            `;
+        }).join('')
+        })
+                
+        // console.log(inventors[0]);
+        // document.querySelector('.table>tbody').innerHTML = htmlArr.join("");
+        // console.log(inventors)
+    </script>
+    
+</body>
+</html>
